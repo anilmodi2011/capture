@@ -252,7 +252,7 @@
                    btrpkt->quality1 = 22222;
                    btrpkt->quality2 = 22222;
                    btrpkt->rssi1 = 22222;
-                   btrpkt->duck =000000;
+                   btrpkt->duck =15;
                    btrpkt->rssi2 = 22222;
                    if (call SerialAMSend.send(126, &pkt, sizeof(SuccessMessage)) == SUCCESS) {
                      busy = TRUE;
