@@ -7,12 +7,12 @@
 public class TestSerialMsg extends net.tinyos.message.Message {
 
     /** The default size of this message type in bytes. */
-    public static final int DEFAULT_MESSAGE_SIZE = 18;
+    public static final int DEFAULT_MESSAGE_SIZE = 20;
 
     /** The Active Message type associated with this message. */
     public static final int AM_TYPE = 137;
 
-    /** Create a new TestSerialMsg of size 18. */
+    /** Create a new TestSerialMsg of size 20. */
     public TestSerialMsg() {
         super(DEFAULT_MESSAGE_SIZE);
         amTypeSet(AM_TYPE);
@@ -94,16 +94,22 @@ public class TestSerialMsg extends net.tinyos.message.Message {
         s += "  [nodeid2=0x"+Long.toHexString(get_nodeid2())+"]\n";
       } catch (ArrayIndexOutOfBoundsException aioobe) { /* Skip field */ }
       try {
-        s += "  [stage=0x"+Long.toHexString(get_stage())+"]\n";
+        s += "  [quality1=0x"+Long.toHexString(get_quality1())+"]\n";
       } catch (ArrayIndexOutOfBoundsException aioobe) { /* Skip field */ }
       try {
-        s += "  [countcapture1=0x"+Long.toHexString(get_countcapture1())+"]\n";
+        s += "  [quality2=0x"+Long.toHexString(get_quality2())+"]\n";
       } catch (ArrayIndexOutOfBoundsException aioobe) { /* Skip field */ }
       try {
-        s += "  [countcapture2=0x"+Long.toHexString(get_countcapture2())+"]\n";
+        s += "  [rssi1=0x"+Long.toHexString(get_rssi1())+"]\n";
       } catch (ArrayIndexOutOfBoundsException aioobe) { /* Skip field */ }
       try {
-        s += "  [serialno=0x"+Long.toHexString(get_serialno())+"]\n";
+        s += "  [rssi2=0x"+Long.toHexString(get_rssi2())+"]\n";
+      } catch (ArrayIndexOutOfBoundsException aioobe) { /* Skip field */ }
+      try {
+        s += "  [result1=0x"+Long.toHexString(get_result1())+"]\n";
+      } catch (ArrayIndexOutOfBoundsException aioobe) { /* Skip field */ }
+      try {
+        s += "  [result2=0x"+Long.toHexString(get_result2())+"]\n";
       } catch (ArrayIndexOutOfBoundsException aioobe) { /* Skip field */ }
       try {
         s += "  [capture1=0x"+Long.toHexString(get_capture1())+"]\n";
@@ -306,262 +312,388 @@ public class TestSerialMsg extends net.tinyos.message.Message {
     }
 
     /////////////////////////////////////////////////////////
-    // Accessor methods for field: stage
+    // Accessor methods for field: quality1
     //   Field type: int, unsigned
     //   Offset (bits): 48
     //   Size (bits): 16
     /////////////////////////////////////////////////////////
 
     /**
-     * Return whether the field 'stage' is signed (false).
+     * Return whether the field 'quality1' is signed (false).
      */
-    public static boolean isSigned_stage() {
+    public static boolean isSigned_quality1() {
         return false;
     }
 
     /**
-     * Return whether the field 'stage' is an array (false).
+     * Return whether the field 'quality1' is an array (false).
      */
-    public static boolean isArray_stage() {
+    public static boolean isArray_quality1() {
         return false;
     }
 
     /**
-     * Return the offset (in bytes) of the field 'stage'
+     * Return the offset (in bytes) of the field 'quality1'
      */
-    public static int offset_stage() {
+    public static int offset_quality1() {
         return (48 / 8);
     }
 
     /**
-     * Return the offset (in bits) of the field 'stage'
+     * Return the offset (in bits) of the field 'quality1'
      */
-    public static int offsetBits_stage() {
+    public static int offsetBits_quality1() {
         return 48;
     }
 
     /**
-     * Return the value (as a int) of the field 'stage'
+     * Return the value (as a int) of the field 'quality1'
      */
-    public int get_stage() {
-        return (int)getUIntBEElement(offsetBits_stage(), 16);
+    public int get_quality1() {
+        return (int)getUIntBEElement(offsetBits_quality1(), 16);
     }
 
     /**
-     * Set the value of the field 'stage'
+     * Set the value of the field 'quality1'
      */
-    public void set_stage(int value) {
-        setUIntBEElement(offsetBits_stage(), 16, value);
+    public void set_quality1(int value) {
+        setUIntBEElement(offsetBits_quality1(), 16, value);
     }
 
     /**
-     * Return the size, in bytes, of the field 'stage'
+     * Return the size, in bytes, of the field 'quality1'
      */
-    public static int size_stage() {
+    public static int size_quality1() {
         return (16 / 8);
     }
 
     /**
-     * Return the size, in bits, of the field 'stage'
+     * Return the size, in bits, of the field 'quality1'
      */
-    public static int sizeBits_stage() {
+    public static int sizeBits_quality1() {
         return 16;
     }
 
     /////////////////////////////////////////////////////////
-    // Accessor methods for field: countcapture1
+    // Accessor methods for field: quality2
     //   Field type: int, unsigned
     //   Offset (bits): 64
     //   Size (bits): 16
     /////////////////////////////////////////////////////////
 
     /**
-     * Return whether the field 'countcapture1' is signed (false).
+     * Return whether the field 'quality2' is signed (false).
      */
-    public static boolean isSigned_countcapture1() {
+    public static boolean isSigned_quality2() {
         return false;
     }
 
     /**
-     * Return whether the field 'countcapture1' is an array (false).
+     * Return whether the field 'quality2' is an array (false).
      */
-    public static boolean isArray_countcapture1() {
+    public static boolean isArray_quality2() {
         return false;
     }
 
     /**
-     * Return the offset (in bytes) of the field 'countcapture1'
+     * Return the offset (in bytes) of the field 'quality2'
      */
-    public static int offset_countcapture1() {
+    public static int offset_quality2() {
         return (64 / 8);
     }
 
     /**
-     * Return the offset (in bits) of the field 'countcapture1'
+     * Return the offset (in bits) of the field 'quality2'
      */
-    public static int offsetBits_countcapture1() {
+    public static int offsetBits_quality2() {
         return 64;
     }
 
     /**
-     * Return the value (as a int) of the field 'countcapture1'
+     * Return the value (as a int) of the field 'quality2'
      */
-    public int get_countcapture1() {
-        return (int)getUIntBEElement(offsetBits_countcapture1(), 16);
+    public int get_quality2() {
+        return (int)getUIntBEElement(offsetBits_quality2(), 16);
     }
 
     /**
-     * Set the value of the field 'countcapture1'
+     * Set the value of the field 'quality2'
      */
-    public void set_countcapture1(int value) {
-        setUIntBEElement(offsetBits_countcapture1(), 16, value);
+    public void set_quality2(int value) {
+        setUIntBEElement(offsetBits_quality2(), 16, value);
     }
 
     /**
-     * Return the size, in bytes, of the field 'countcapture1'
+     * Return the size, in bytes, of the field 'quality2'
      */
-    public static int size_countcapture1() {
+    public static int size_quality2() {
         return (16 / 8);
     }
 
     /**
-     * Return the size, in bits, of the field 'countcapture1'
+     * Return the size, in bits, of the field 'quality2'
      */
-    public static int sizeBits_countcapture1() {
+    public static int sizeBits_quality2() {
         return 16;
     }
 
     /////////////////////////////////////////////////////////
-    // Accessor methods for field: countcapture2
+    // Accessor methods for field: rssi1
     //   Field type: int, unsigned
     //   Offset (bits): 80
     //   Size (bits): 16
     /////////////////////////////////////////////////////////
 
     /**
-     * Return whether the field 'countcapture2' is signed (false).
+     * Return whether the field 'rssi1' is signed (false).
      */
-    public static boolean isSigned_countcapture2() {
+    public static boolean isSigned_rssi1() {
         return false;
     }
 
     /**
-     * Return whether the field 'countcapture2' is an array (false).
+     * Return whether the field 'rssi1' is an array (false).
      */
-    public static boolean isArray_countcapture2() {
+    public static boolean isArray_rssi1() {
         return false;
     }
 
     /**
-     * Return the offset (in bytes) of the field 'countcapture2'
+     * Return the offset (in bytes) of the field 'rssi1'
      */
-    public static int offset_countcapture2() {
+    public static int offset_rssi1() {
         return (80 / 8);
     }
 
     /**
-     * Return the offset (in bits) of the field 'countcapture2'
+     * Return the offset (in bits) of the field 'rssi1'
      */
-    public static int offsetBits_countcapture2() {
+    public static int offsetBits_rssi1() {
         return 80;
     }
 
     /**
-     * Return the value (as a int) of the field 'countcapture2'
+     * Return the value (as a int) of the field 'rssi1'
      */
-    public int get_countcapture2() {
-        return (int)getUIntBEElement(offsetBits_countcapture2(), 16);
+    public int get_rssi1() {
+        return (int)getUIntBEElement(offsetBits_rssi1(), 16);
     }
 
     /**
-     * Set the value of the field 'countcapture2'
+     * Set the value of the field 'rssi1'
      */
-    public void set_countcapture2(int value) {
-        setUIntBEElement(offsetBits_countcapture2(), 16, value);
+    public void set_rssi1(int value) {
+        setUIntBEElement(offsetBits_rssi1(), 16, value);
     }
 
     /**
-     * Return the size, in bytes, of the field 'countcapture2'
+     * Return the size, in bytes, of the field 'rssi1'
      */
-    public static int size_countcapture2() {
+    public static int size_rssi1() {
         return (16 / 8);
     }
 
     /**
-     * Return the size, in bits, of the field 'countcapture2'
+     * Return the size, in bits, of the field 'rssi1'
      */
-    public static int sizeBits_countcapture2() {
+    public static int sizeBits_rssi1() {
         return 16;
     }
 
     /////////////////////////////////////////////////////////
-    // Accessor methods for field: serialno
+    // Accessor methods for field: rssi2
     //   Field type: int, unsigned
     //   Offset (bits): 96
     //   Size (bits): 16
     /////////////////////////////////////////////////////////
 
     /**
-     * Return whether the field 'serialno' is signed (false).
+     * Return whether the field 'rssi2' is signed (false).
      */
-    public static boolean isSigned_serialno() {
+    public static boolean isSigned_rssi2() {
         return false;
     }
 
     /**
-     * Return whether the field 'serialno' is an array (false).
+     * Return whether the field 'rssi2' is an array (false).
      */
-    public static boolean isArray_serialno() {
+    public static boolean isArray_rssi2() {
         return false;
     }
 
     /**
-     * Return the offset (in bytes) of the field 'serialno'
+     * Return the offset (in bytes) of the field 'rssi2'
      */
-    public static int offset_serialno() {
+    public static int offset_rssi2() {
         return (96 / 8);
     }
 
     /**
-     * Return the offset (in bits) of the field 'serialno'
+     * Return the offset (in bits) of the field 'rssi2'
      */
-    public static int offsetBits_serialno() {
+    public static int offsetBits_rssi2() {
         return 96;
     }
 
     /**
-     * Return the value (as a int) of the field 'serialno'
+     * Return the value (as a int) of the field 'rssi2'
      */
-    public int get_serialno() {
-        return (int)getUIntBEElement(offsetBits_serialno(), 16);
+    public int get_rssi2() {
+        return (int)getUIntBEElement(offsetBits_rssi2(), 16);
     }
 
     /**
-     * Set the value of the field 'serialno'
+     * Set the value of the field 'rssi2'
      */
-    public void set_serialno(int value) {
-        setUIntBEElement(offsetBits_serialno(), 16, value);
+    public void set_rssi2(int value) {
+        setUIntBEElement(offsetBits_rssi2(), 16, value);
     }
 
     /**
-     * Return the size, in bytes, of the field 'serialno'
+     * Return the size, in bytes, of the field 'rssi2'
      */
-    public static int size_serialno() {
+    public static int size_rssi2() {
         return (16 / 8);
     }
 
     /**
-     * Return the size, in bits, of the field 'serialno'
+     * Return the size, in bits, of the field 'rssi2'
      */
-    public static int sizeBits_serialno() {
+    public static int sizeBits_rssi2() {
+        return 16;
+    }
+
+    /////////////////////////////////////////////////////////
+    // Accessor methods for field: result1
+    //   Field type: int, unsigned
+    //   Offset (bits): 112
+    //   Size (bits): 16
+    /////////////////////////////////////////////////////////
+
+    /**
+     * Return whether the field 'result1' is signed (false).
+     */
+    public static boolean isSigned_result1() {
+        return false;
+    }
+
+    /**
+     * Return whether the field 'result1' is an array (false).
+     */
+    public static boolean isArray_result1() {
+        return false;
+    }
+
+    /**
+     * Return the offset (in bytes) of the field 'result1'
+     */
+    public static int offset_result1() {
+        return (112 / 8);
+    }
+
+    /**
+     * Return the offset (in bits) of the field 'result1'
+     */
+    public static int offsetBits_result1() {
+        return 112;
+    }
+
+    /**
+     * Return the value (as a int) of the field 'result1'
+     */
+    public int get_result1() {
+        return (int)getUIntBEElement(offsetBits_result1(), 16);
+    }
+
+    /**
+     * Set the value of the field 'result1'
+     */
+    public void set_result1(int value) {
+        setUIntBEElement(offsetBits_result1(), 16, value);
+    }
+
+    /**
+     * Return the size, in bytes, of the field 'result1'
+     */
+    public static int size_result1() {
+        return (16 / 8);
+    }
+
+    /**
+     * Return the size, in bits, of the field 'result1'
+     */
+    public static int sizeBits_result1() {
+        return 16;
+    }
+
+    /////////////////////////////////////////////////////////
+    // Accessor methods for field: result2
+    //   Field type: int, unsigned
+    //   Offset (bits): 128
+    //   Size (bits): 16
+    /////////////////////////////////////////////////////////
+
+    /**
+     * Return whether the field 'result2' is signed (false).
+     */
+    public static boolean isSigned_result2() {
+        return false;
+    }
+
+    /**
+     * Return whether the field 'result2' is an array (false).
+     */
+    public static boolean isArray_result2() {
+        return false;
+    }
+
+    /**
+     * Return the offset (in bytes) of the field 'result2'
+     */
+    public static int offset_result2() {
+        return (128 / 8);
+    }
+
+    /**
+     * Return the offset (in bits) of the field 'result2'
+     */
+    public static int offsetBits_result2() {
+        return 128;
+    }
+
+    /**
+     * Return the value (as a int) of the field 'result2'
+     */
+    public int get_result2() {
+        return (int)getUIntBEElement(offsetBits_result2(), 16);
+    }
+
+    /**
+     * Set the value of the field 'result2'
+     */
+    public void set_result2(int value) {
+        setUIntBEElement(offsetBits_result2(), 16, value);
+    }
+
+    /**
+     * Return the size, in bytes, of the field 'result2'
+     */
+    public static int size_result2() {
+        return (16 / 8);
+    }
+
+    /**
+     * Return the size, in bits, of the field 'result2'
+     */
+    public static int sizeBits_result2() {
         return 16;
     }
 
     /////////////////////////////////////////////////////////
     // Accessor methods for field: capture1
-    //   Field type: int, unsigned
-    //   Offset (bits): 112
-    //   Size (bits): 16
+    //   Field type: short, unsigned
+    //   Offset (bits): 144
+    //   Size (bits): 8
     /////////////////////////////////////////////////////////
 
     /**
@@ -582,49 +714,49 @@ public class TestSerialMsg extends net.tinyos.message.Message {
      * Return the offset (in bytes) of the field 'capture1'
      */
     public static int offset_capture1() {
-        return (112 / 8);
+        return (144 / 8);
     }
 
     /**
      * Return the offset (in bits) of the field 'capture1'
      */
     public static int offsetBits_capture1() {
-        return 112;
+        return 144;
     }
 
     /**
-     * Return the value (as a int) of the field 'capture1'
+     * Return the value (as a short) of the field 'capture1'
      */
-    public int get_capture1() {
-        return (int)getUIntBEElement(offsetBits_capture1(), 16);
+    public short get_capture1() {
+        return (short)getUIntBEElement(offsetBits_capture1(), 8);
     }
 
     /**
      * Set the value of the field 'capture1'
      */
-    public void set_capture1(int value) {
-        setUIntBEElement(offsetBits_capture1(), 16, value);
+    public void set_capture1(short value) {
+        setUIntBEElement(offsetBits_capture1(), 8, value);
     }
 
     /**
      * Return the size, in bytes, of the field 'capture1'
      */
     public static int size_capture1() {
-        return (16 / 8);
+        return (8 / 8);
     }
 
     /**
      * Return the size, in bits, of the field 'capture1'
      */
     public static int sizeBits_capture1() {
-        return 16;
+        return 8;
     }
 
     /////////////////////////////////////////////////////////
     // Accessor methods for field: capture2
-    //   Field type: int, unsigned
-    //   Offset (bits): 128
-    //   Size (bits): 16
+    //   Field type: short, unsigned
+    //   Offset (bits): 152
+    //   Size (bits): 8
     /////////////////////////////////////////////////////////
 
     /**
@@ -645,42 +777,42 @@ public class TestSerialMsg extends net.tinyos.message.Message {
      * Return the offset (in bytes) of the field 'capture2'
      */
     public static int offset_capture2() {
-        return (128 / 8);
+        return (152 / 8);
     }
 
     /**
      * Return the offset (in bits) of the field 'capture2'
      */
     public static int offsetBits_capture2() {
-        return 128;
+        return 152;
     }
 
     /**
-     * Return the value (as a int) of the field 'capture2'
+     * Return the value (as a short) of the field 'capture2'
      */
-    public int get_capture2() {
-        return (int)getUIntBEElement(offsetBits_capture2(), 16);
+    public short get_capture2() {
+        return (short)getUIntBEElement(offsetBits_capture2(), 8);
     }
 
     /**
      * Set the value of the field 'capture2'
      */
-    public void set_capture2(int value) {
-        setUIntBEElement(offsetBits_capture2(), 16, value);
+    public void set_capture2(short value) {
+        setUIntBEElement(offsetBits_capture2(), 8, value);
     }
 
     /**
      * Return the size, in bytes, of the field 'capture2'
      */
     public static int size_capture2() {
-        return (16 / 8);
+        return (8 / 8);
     }
 
     /**
      * Return the size, in bits, of the field 'capture2'
      */
     public static int sizeBits_capture2() {
-        return 16;
+        return 8;
     }
 
 }

@@ -52,7 +52,7 @@ import net.tinyos.util.*;
 public class TestSerial implements MessageListener {
 
   static private int [] arr;
-  static private int index = 45;
+  static private int index = 42;
   static public MoteIF moteIF;
   static public boolean received;
   static public Timer timer;
@@ -115,7 +115,7 @@ public class TestSerial implements MessageListener {
 
     received = true;
 
-    if(msg.get_result2() == 33333){
+    if(msg.get_stage() == 0){
       ++index;
       if(index <= 90)
         create();
@@ -123,23 +123,20 @@ public class TestSerial implements MessageListener {
       return;
     }
 
-
-    String s = "" +  msg.get_duck() + "\t" + 
-                   msg.get_commander() + "\t" + 
+    String s = "" + msg.get_commander() + "\t" + 
                     msg.get_nodeid1() + "\t" + 
                     msg.get_nodeid2() + "\t" + 
-                    msg.get_quality1() + "\t" + 
-                    msg.get_quality2() + "\t" + 
-                    msg.get_result1() + "\t" + 
-                    msg.get_result2() + "\t" + 
-                    msg.get_rssi1() + "\t" +
- 
-                    msg.get_rssi2();
+                    msg.get_stage() + "\t" + 
+                    msg.get_countcapture1() + "\t" + 
+                    msg.get_countcapture2() + "\t" + 
+                    msg.get_serialno() + "\t" + 
+                    msg.get_capture1() + "\t" + 
+                    msg.get_capture2();
 
 
     try {
       ////////////////////////////////////////////////////////////////
-      if(msg.get_result2() < 11111){
+      if(msg.get_stage() == 5 || msg.get_stage() == 3){
         BufferedWriter out = new BufferedWriter(new FileWriter("data.txt", true));
         out.write(s); out.newLine();
         out.close();
