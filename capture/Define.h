@@ -34,6 +34,7 @@ typedef nx_struct SuccessMessage {
 	nx_uint16_t serialno;
 	nx_uint16_t capture1;
 	nx_uint16_t capture2;
+	// nx_uint16_t nbr1capture[7];
 } SuccessMessage;
 
 #endif

@@ -131,6 +131,8 @@ public class TestSerial implements MessageListener {
                     msg.get_countcapture2() + "\t" + 
                     msg.get_serialno() + "\t" + 
                     msg.get_capture1() + "\t" + 
+                    msg.get_nbr1capture()[0] + "\t" + 
+                    msg.get_nbr1capture()[1] + "\t" + 
                     msg.get_capture2();
 
 

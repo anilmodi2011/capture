@@ -56,6 +56,9 @@ uint16_t mode2 = MODE2_NODE;
 uint16_t nodes[150] = {0, };
 uint16_t capture1[100] = {0,};
 uint16_t capture2[100] = {0,};
+uint16_t capture_r1[100] = {0,};
+uint16_t capture_r2[100] = {0,};
+uint16_t capture_rec[100] = {0,};
 uint16_t nodeCount = 0;
 uint16_t eventCount = 0;
 uint16_t messageCount1 = 0;
@@ -408,6 +411,7 @@ event message_t* RadioReceive.receive(message_t* msg, void* payload, uint8_t len
                 }
 
                 serialNo = btrpkt->serialNo;
+                capture_rec[serialNo] = 1;
 
                 mode2 = MODE2_SENDRETURN;
 
@@ -457,6 +461,9 @@ event message_t* SerialReceive.receive(message_t* msg, void* payload, uint8_t le
     for(i=0; i<NUM_MESSAGE; ++i){
         capture1[i]=0;
         capture2[i]=0;
+        capture_r1[i]=0;
+        capture_r2[i]=0;
+        capture_rec[i]=0;
     }
 
     for(i=0; i<150; ++i) {

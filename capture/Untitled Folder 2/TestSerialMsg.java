@@ -7,12 +7,12 @@
 public class TestSerialMsg extends net.tinyos.message.Message {
 
     /** The default size of this message type in bytes. */
-    public static final int DEFAULT_MESSAGE_SIZE = 20;
+    public static final int DEFAULT_MESSAGE_SIZE = 418;
 
     /** The Active Message type associated with this message. */
     public static final int AM_TYPE = 137;
 
-    /** Create a new TestSerialMsg of size 20. */
+    /** Create a new TestSerialMsg of size 418. */
     public TestSerialMsg() {
         super(DEFAULT_MESSAGE_SIZE);
         amTypeSet(AM_TYPE);
@@ -94,28 +94,36 @@ public class TestSerialMsg extends net.tinyos.message.Message {
         s += "  [nodeid2=0x"+Long.toHexString(get_nodeid2())+"]\n";
       } catch (ArrayIndexOutOfBoundsException aioobe) { /* Skip field */ }
       try {
-        s += "  [quality1=0x"+Long.toHexString(get_quality1())+"]\n";
+        s += "  [stage=0x"+Long.toHexString(get_stage())+"]\n";
       } catch (ArrayIndexOutOfBoundsException aioobe) { /* Skip field */ }
       try {
-        s += "  [quality2=0x"+Long.toHexString(get_quality2())+"]\n";
+        s += "  [countcapture1=0x"+Long.toHexString(get_countcapture1())+"]\n";
       } catch (ArrayIndexOutOfBoundsException aioobe) { /* Skip field */ }
       try {
-        s += "  [rssi1=0x"+Long.toHexString(get_rssi1())+"]\n";
+        s += "  [countcapture2=0x"+Long.toHexString(get_countcapture2())+"]\n";
       } catch (ArrayIndexOutOfBoundsException aioobe) { /* Skip field */ }
       try {
-        s += "  [rssi2=0x"+Long.toHexString(get_rssi2())+"]\n";
-      } catch (ArrayIndexOutOfBoundsException aioobe) { /* Skip field */ }
-      try {
-        s += "  [result1=0x"+Long.toHexString(get_result1())+"]\n";
-      } catch (ArrayIndexOutOfBoundsException aioobe) { /* Skip field */ }
-      try {
-        s += "  [result2=0x"+Long.toHexString(get_result2())+"]\n";
+        s += "  [serialno=0x"+Long.toHexString(get_serialno())+"]\n";
       } catch (ArrayIndexOutOfBoundsException aioobe) { /* Skip field */ }
       try {
         s += "  [capture1=0x"+Long.toHexString(get_capture1())+"]\n";
       } catch (ArrayIndexOutOfBoundsException aioobe) { /* Skip field */ }
       try {
         s += "  [capture2=0x"+Long.toHexString(get_capture2())+"]\n";
+      } catch (ArrayIndexOutOfBoundsException aioobe) { /* Skip field */ }
+      try {
+        s += "  [nbr1capture=";
+        for (int i = 0; i < 100; i++) {
+          s += "0x"+Long.toHexString(getElement_nbr1capture(i) & 0xffff)+" ";
+        }
+        s += "]\n";
+      } catch (ArrayIndexOutOfBoundsException aioobe) { /* Skip field */ }
+      try {
+        s += "  [nbr2capture=";
+        for (int i = 0; i < 100; i++) {
+          s += "0x"+Long.toHexString(getElement_nbr2capture(i) & 0xffff)+" ";
+        }
+        s += "]\n";
       } catch (ArrayIndexOutOfBoundsException aioobe) { /* Skip field */ }
       return s;
     }
@@ -312,388 +320,262 @@ public class TestSerialMsg extends net.tinyos.message.Message {
     }
 
     /////////////////////////////////////////////////////////
-    // Accessor methods for field: quality1
+    // Accessor methods for field: stage
     //   Field type: int, unsigned
     //   Offset (bits): 48
     //   Size (bits): 16
     /////////////////////////////////////////////////////////
 
     /**
-     * Return whether the field 'quality1' is signed (false).
+     * Return whether the field 'stage' is signed (false).
      */
-    public static boolean isSigned_quality1() {
+    public static boolean isSigned_stage() {
         return false;
     }
 
     /**
-     * Return whether the field 'quality1' is an array (false).
+     * Return whether the field 'stage' is an array (false).
      */
-    public static boolean isArray_quality1() {
+    public static boolean isArray_stage() {
         return false;
     }
 
     /**
-     * Return the offset (in bytes) of the field 'quality1'
+     * Return the offset (in bytes) of the field 'stage'
      */
-    public static int offset_quality1() {
+    public static int offset_stage() {
         return (48 / 8);
     }
 
     /**
-     * Return the offset (in bits) of the field 'quality1'
+     * Return the offset (in bits) of the field 'stage'
      */
-    public static int offsetBits_quality1() {
+    public static int offsetBits_stage() {
         return 48;
     }
 
     /**
-     * Return the value (as a int) of the field 'quality1'
+     * Return the value (as a int) of the field 'stage'
      */
-    public int get_quality1() {
-        return (int)getUIntBEElement(offsetBits_quality1(), 16);
+    public int get_stage() {
+        return (int)getUIntBEElement(offsetBits_stage(), 16);
     }
 
     /**
-     * Set the value of the field 'quality1'
+     * Set the value of the field 'stage'
      */
-    public void set_quality1(int value) {
-        setUIntBEElement(offsetBits_quality1(), 16, value);
+    public void set_stage(int value) {
+        setUIntBEElement(offsetBits_stage(), 16, value);
     }
 
     /**
-     * Return the size, in bytes, of the field 'quality1'
+     * Return the size, in bytes, of the field 'stage'
      */
-    public static int size_quality1() {
+    public static int size_stage() {
         return (16 / 8);
     }
 
     /**
-     * Return the size, in bits, of the field 'quality1'
+     * Return the size, in bits, of the field 'stage'
      */
-    public static int sizeBits_quality1() {
+    public static int sizeBits_stage() {
         return 16;
     }
 
     /////////////////////////////////////////////////////////
-    // Accessor methods for field: quality2
+    // Accessor methods for field: countcapture1
     //   Field type: int, unsigned
     //   Offset (bits): 64
     //   Size (bits): 16
     /////////////////////////////////////////////////////////
 
     /**
-     * Return whether the field 'quality2' is signed (false).
+     * Return whether the field 'countcapture1' is signed (false).
      */
-    public static boolean isSigned_quality2() {
+    public static boolean isSigned_countcapture1() {
         return false;
     }
 
     /**
-     * Return whether the field 'quality2' is an array (false).
+     * Return whether the field 'countcapture1' is an array (false).
      */
-    public static boolean isArray_quality2() {
+    public static boolean isArray_countcapture1() {
         return false;
     }
 
     /**
-     * Return the offset (in bytes) of the field 'quality2'
+     * Return the offset (in bytes) of the field 'countcapture1'
      */
-    public static int offset_quality2() {
+    public static int offset_countcapture1() {
         return (64 / 8);
     }
 
     /**
-     * Return the offset (in bits) of the field 'quality2'
+     * Return the offset (in bits) of the field 'countcapture1'
      */
-    public static int offsetBits_quality2() {
+    public static int offsetBits_countcapture1() {
         return 64;
     }
 
     /**
-     * Return the value (as a int) of the field 'quality2'
+     * Return the value (as a int) of the field 'countcapture1'
      */
-    public int get_quality2() {
-        return (int)getUIntBEElement(offsetBits_quality2(), 16);
+    public int get_countcapture1() {
+        return (int)getUIntBEElement(offsetBits_countcapture1(), 16);
     }
 
     /**
-     * Set the value of the field 'quality2'
+     * Set the value of the field 'countcapture1'
      */
-    public void set_quality2(int value) {
-        setUIntBEElement(offsetBits_quality2(), 16, value);
+    public void set_countcapture1(int value) {
+        setUIntBEElement(offsetBits_countcapture1(), 16, value);
     }
 
     /**
-     * Return the size, in bytes, of the field 'quality2'
+     * Return the size, in bytes, of the field 'countcapture1'
      */
-    public static int size_quality2() {
+    public static int size_countcapture1() {
         return (16 / 8);
     }
 
     /**
-     * Return the size, in bits, of the field 'quality2'
+     * Return the size, in bits, of the field 'countcapture1'
      */
-    public static int sizeBits_quality2() {
+    public static int sizeBits_countcapture1() {
         return 16;
     }
 
     /////////////////////////////////////////////////////////
-    // Accessor methods for field: rssi1
+    // Accessor methods for field: countcapture2
     //   Field type: int, unsigned
     //   Offset (bits): 80
     //   Size (bits): 16
     /////////////////////////////////////////////////////////
 
     /**
-     * Return whether the field 'rssi1' is signed (false).
+     * Return whether the field 'countcapture2' is signed (false).
      */
-    public static boolean isSigned_rssi1() {
+    public static boolean isSigned_countcapture2() {
         return false;
     }
 
     /**
-     * Return whether the field 'rssi1' is an array (false).
+     * Return whether the field 'countcapture2' is an array (false).
      */
-    public static boolean isArray_rssi1() {
+    public static boolean isArray_countcapture2() {
         return false;
     }
 
     /**
-     * Return the offset (in bytes) of the field 'rssi1'
+     * Return the offset (in bytes) of the field 'countcapture2'
      */
-    public static int offset_rssi1() {
+    public static int offset_countcapture2() {
         return (80 / 8);
     }
 
     /**
-     * Return the offset (in bits) of the field 'rssi1'
+     * Return the offset (in bits) of the field 'countcapture2'
      */
-    public static int offsetBits_rssi1() {
+    public static int offsetBits_countcapture2() {
         return 80;
     }
 
     /**
-     * Return the value (as a int) of the field 'rssi1'
+     * Return the value (as a int) of the field 'countcapture2'
      */
-    public int get_rssi1() {
-        return (int)getUIntBEElement(offsetBits_rssi1(), 16);
+    public int get_countcapture2() {
+        return (int)getUIntBEElement(offsetBits_countcapture2(), 16);
     }
 
     /**
-     * Set the value of the field 'rssi1'
+     * Set the value of the field 'countcapture2'
      */
-    public void set_rssi1(int value) {
-        setUIntBEElement(offsetBits_rssi1(), 16, value);
+    public void set_countcapture2(int value) {
+        setUIntBEElement(offsetBits_countcapture2(), 16, value);
     }
 
     /**
-     * Return the size, in bytes, of the field 'rssi1'
+     * Return the size, in bytes, of the field 'countcapture2'
      */
-    public static int size_rssi1() {
+    public static int size_countcapture2() {
         return (16 / 8);
     }
 
     /**
-     * Return the size, in bits, of the field 'rssi1'
+     * Return the size, in bits, of the field 'countcapture2'
      */
-    public static int sizeBits_rssi1() {
+    public static int sizeBits_countcapture2() {
         return 16;
     }
 
     /////////////////////////////////////////////////////////
-    // Accessor methods for field: rssi2
+    // Accessor methods for field: serialno
     //   Field type: int, unsigned
     //   Offset (bits): 96
     //   Size (bits): 16
     /////////////////////////////////////////////////////////
 
     /**
-     * Return whether the field 'rssi2' is signed (false).
+     * Return whether the field 'serialno' is signed (false).
      */
-    public static boolean isSigned_rssi2() {
+    public static boolean isSigned_serialno() {
         return false;
     }
 
     /**
-     * Return whether the field 'rssi2' is an array (false).
+     * Return whether the field 'serialno' is an array (false).
      */
-    public static boolean isArray_rssi2() {
+    public static boolean isArray_serialno() {
         return false;
     }
 
     /**
-     * Return the offset (in bytes) of the field 'rssi2'
+     * Return the offset (in bytes) of the field 'serialno'
      */
-    public static int offset_rssi2() {
+    public static int offset_serialno() {
         return (96 / 8);
     }
 
     /**
-     * Return the offset (in bits) of the field 'rssi2'
+     * Return the offset (in bits) of the field 'serialno'
      */
-    public static int offsetBits_rssi2() {
+    public static int offsetBits_serialno() {
         return 96;
     }
 
     /**
-     * Return the value (as a int) of the field 'rssi2'
+     * Return the value (as a int) of the field 'serialno'
      */
-    public int get_rssi2() {
-        return (int)getUIntBEElement(offsetBits_rssi2(), 16);
+    public int get_serialno() {
+        return (int)getUIntBEElement(offsetBits_serialno(), 16);
     }
 
     /**
-     * Set the value of the field 'rssi2'
+     * Set the value of the field 'serialno'
      */
-    public void set_rssi2(int value) {
-        setUIntBEElement(offsetBits_rssi2(), 16, value);
+    public void set_serialno(int value) {
+        setUIntBEElement(offsetBits_serialno(), 16, value);
     }
 
     /**
-     * Return the size, in bytes, of the field 'rssi2'
+     * Return the size, in bytes, of the field 'serialno'
      */
-    public static int size_rssi2() {
+    public static int size_serialno() {
         return (16 / 8);
     }
 
     /**
-     * Return the size, in bits, of the field 'rssi2'
+     * Return the size, in bits, of the field 'serialno'
      */
-    public static int sizeBits_rssi2() {
-        return 16;
-    }
-
-    /////////////////////////////////////////////////////////
-    // Accessor methods for field: result1
-    //   Field type: int, unsigned
-    //   Offset (bits): 112
-    //   Size (bits): 16
-    /////////////////////////////////////////////////////////
-
-    /**
-     * Return whether the field 'result1' is signed (false).
-     */
-    public static boolean isSigned_result1() {
-        return false;
-    }
-
-    /**
-     * Return whether the field 'result1' is an array (false).
-     */
-    public static boolean isArray_result1() {
-        return false;
-    }
-
-    /**
-     * Return the offset (in bytes) of the field 'result1'
-     */
-    public static int offset_result1() {
-        return (112 / 8);
-    }
-
-    /**
-     * Return the offset (in bits) of the field 'result1'
-     */
-    public static int offsetBits_result1() {
-        return 112;
-    }
-
-    /**
-     * Return the value (as a int) of the field 'result1'
-     */
-    public int get_result1() {
-        return (int)getUIntBEElement(offsetBits_result1(), 16);
-    }
-
-    /**
-     * Set the value of the field 'result1'
-     */
-    public void set_result1(int value) {
-        setUIntBEElement(offsetBits_result1(), 16, value);
-    }
-
-    /**
-     * Return the size, in bytes, of the field 'result1'
-     */
-    public static int size_result1() {
-        return (16 / 8);
-    }
-
-    /**
-     * Return the size, in bits, of the field 'result1'
-     */
-    public static int sizeBits_result1() {
-        return 16;
-    }
-
-    /////////////////////////////////////////////////////////
-    // Accessor methods for field: result2
-    //   Field type: int, unsigned
-    //   Offset (bits): 128
-    //   Size (bits): 16
-    /////////////////////////////////////////////////////////
-
-    /**
-     * Return whether the field 'result2' is signed (false).
-     */
-    public static boolean isSigned_result2() {
-        return false;
-    }
-
-    /**
-     * Return whether the field 'result2' is an array (false).
-     */
-    public static boolean isArray_result2() {
-        return false;
-    }
-
-    /**
-     * Return the offset (in bytes) of the field 'result2'
-     */
-    public static int offset_result2() {
-        return (128 / 8);
-    }
-
-    /**
-     * Return the offset (in bits) of the field 'result2'
-     */
-    public static int offsetBits_result2() {
-        return 128;
-    }
-
-    /**
-     * Return the value (as a int) of the field 'result2'
-     */
-    public int get_result2() {
-        return (int)getUIntBEElement(offsetBits_result2(), 16);
-    }
-
-    /**
-     * Set the value of the field 'result2'
-     */
-    public void set_result2(int value) {
-        setUIntBEElement(offsetBits_result2(), 16, value);
-    }
-
-    /**
-     * Return the size, in bytes, of the field 'result2'
-     */
-    public static int size_result2() {
-        return (16 / 8);
-    }
-
-    /**
-     * Return the size, in bits, of the field 'result2'
-     */
-    public static int sizeBits_result2() {
+    public static int sizeBits_serialno() {
         return 16;
     }
 
     /////////////////////////////////////////////////////////
     // Accessor methods for field: capture1
-    //   Field type: short, unsigned
-    //   Offset (bits): 144
-    //   Size (bits): 8
+    //   Field type: int, unsigned
+    //   Offset (bits): 112
+    //   Size (bits): 16
     /////////////////////////////////////////////////////////
 
     /**
@@ -714,49 +596,49 @@ public class TestSerialMsg extends net.tinyos.message.Message {
      * Return the offset (in bytes) of the field 'capture1'
      */
     public static int offset_capture1() {
-        return (144 / 8);
+        return (112 / 8);
     }
 
     /**
      * Return the offset (in bits) of the field 'capture1'
      */
     public static int offsetBits_capture1() {
-        return 144;
+        return 112;
     }
 
     /**
-     * Return the value (as a short) of the field 'capture1'
+     * Return the value (as a int) of the field 'capture1'
      */
-    public short get_capture1() {
-        return (short)getUIntBEElement(offsetBits_capture1(), 8);
+    public int get_capture1() {
+        return (int)getUIntBEElement(offsetBits_capture1(), 16);
     }
 
     /**
      * Set the value of the field 'capture1'
      */
-    public void set_capture1(short value) {
-        setUIntBEElement(offsetBits_capture1(), 8, value);
+    public void set_capture1(int value) {
+        setUIntBEElement(offsetBits_capture1(), 16, value);
     }
 
     /**
      * Return the size, in bytes, of the field 'capture1'
      */
     public static int size_capture1() {
-        return (8 / 8);
+        return (16 / 8);
     }
 
     /**
      * Return the size, in bits, of the field 'capture1'
      */
     public static int sizeBits_capture1() {
-        return 8;
+        return 16;
     }
 
     /////////////////////////////////////////////////////////
     // Accessor methods for field: capture2
-    //   Field type: short, unsigned
-    //   Offset (bits): 152
-    //   Size (bits): 8
+    //   Field type: int, unsigned
+    //   Offset (bits): 128
+    //   Size (bits): 16
     /////////////////////////////////////////////////////////
 
     /**
@@ -777,42 +659,298 @@ public class TestSerialMsg extends net.tinyos.message.Message {
      * Return the offset (in bytes) of the field 'capture2'
      */
     public static int offset_capture2() {
-        return (152 / 8);
+        return (128 / 8);
     }
 
     /**
      * Return the offset (in bits) of the field 'capture2'
      */
     public static int offsetBits_capture2() {
-        return 152;
+        return 128;
     }
 
     /**
-     * Return the value (as a short) of the field 'capture2'
+     * Return the value (as a int) of the field 'capture2'
      */
-    public short get_capture2() {
-        return (short)getUIntBEElement(offsetBits_capture2(), 8);
+    public int get_capture2() {
+        return (int)getUIntBEElement(offsetBits_capture2(), 16);
     }
 
     /**
      * Set the value of the field 'capture2'
      */
-    public void set_capture2(short value) {
-        setUIntBEElement(offsetBits_capture2(), 8, value);
+    public void set_capture2(int value) {
+        setUIntBEElement(offsetBits_capture2(), 16, value);
     }
 
     /**
      * Return the size, in bytes, of the field 'capture2'
      */
     public static int size_capture2() {
-        return (8 / 8);
+        return (16 / 8);
     }
 
     /**
      * Return the size, in bits, of the field 'capture2'
      */
     public static int sizeBits_capture2() {
-        return 8;
+        return 16;
+    }
+
+    /////////////////////////////////////////////////////////
+    // Accessor methods for field: nbr1capture
+    //   Field type: int[], unsigned
+    //   Offset (bits): 144
+    //   Size of each element (bits): 16
+    /////////////////////////////////////////////////////////
+
+    /**
+     * Return whether the field 'nbr1capture' is signed (false).
+     */
+    public static boolean isSigned_nbr1capture() {
+        return false;
+    }
+
+    /**
+     * Return whether the field 'nbr1capture' is an array (true).
+     */
+    public static boolean isArray_nbr1capture() {
+        return true;
+    }
+
+    /**
+     * Return the offset (in bytes) of the field 'nbr1capture'
+     */
+    public static int offset_nbr1capture(int index1) {
+        int offset = 144;
+        if (index1 < 0 || index1 >= 100) throw new ArrayIndexOutOfBoundsException();
+        offset += 0 + index1 * 16;
+        return (offset / 8);
+    }
+
+    /**
+     * Return the offset (in bits) of the field 'nbr1capture'
+     */
+    public static int offsetBits_nbr1capture(int index1) {
+        int offset = 144;
+        if (index1 < 0 || index1 >= 100) throw new ArrayIndexOutOfBoundsException();
+        offset += 0 + index1 * 16;
+        return offset;
+    }
+
+    /**
+     * Return the entire array 'nbr1capture' as a int[]
+     */
+    public int[] get_nbr1capture() {
+        int[] tmp = new int[100];
+        for (int index0 = 0; index0 < numElements_nbr1capture(0); index0++) {
+            tmp[index0] = getElement_nbr1capture(index0);
+        }
+        return tmp;
+    }
+
+    /**
+     * Set the contents of the array 'nbr1capture' from the given int[]
+     */
+    public void set_nbr1capture(int[] value) {
+        for (int index0 = 0; index0 < value.length; index0++) {
+            setElement_nbr1capture(index0, value[index0]);
+        }
+    }
+
+    /**
+     * Return an element (as a int) of the array 'nbr1capture'
+     */
+    public int getElement_nbr1capture(int index1) {
+        return (int)getUIntBEElement(offsetBits_nbr1capture(index1), 16);
+    }
+
+    /**
+     * Set an element of the array 'nbr1capture'
+     */
+    public void setElement_nbr1capture(int index1, int value) {
+        setUIntBEElement(offsetBits_nbr1capture(index1), 16, value);
+    }
+
+    /**
+     * Return the total size, in bytes, of the array 'nbr1capture'
+     */
+    public static int totalSize_nbr1capture() {
+        return (1600 / 8);
+    }
+
+    /**
+     * Return the total size, in bits, of the array 'nbr1capture'
+     */
+    public static int totalSizeBits_nbr1capture() {
+        return 1600;
+    }
+
+    /**
+     * Return the size, in bytes, of each element of the array 'nbr1capture'
+     */
+    public static int elementSize_nbr1capture() {
+        return (16 / 8);
+    }
+
+    /**
+     * Return the size, in bits, of each element of the array 'nbr1capture'
+     */
+    public static int elementSizeBits_nbr1capture() {
+        return 16;
+    }
+
+    /**
+     * Return the number of dimensions in the array 'nbr1capture'
+     */
+    public static int numDimensions_nbr1capture() {
+        return 1;
+    }
+
+    /**
+     * Return the number of elements in the array 'nbr1capture'
+     */
+    public static int numElements_nbr1capture() {
+        return 100;
+    }
+
+    /**
+     * Return the number of elements in the array 'nbr1capture'
+     * for the given dimension.
+     */
+    public static int numElements_nbr1capture(int dimension) {
+      int array_dims[] = { 100,  };
+        if (dimension < 0 || dimension >= 1) throw new ArrayIndexOutOfBoundsException();
+        if (array_dims[dimension] == 0) throw new IllegalArgumentException("Array dimension "+dimension+" has unknown size");
+        return array_dims[dimension];
+    }
+
+    /////////////////////////////////////////////////////////
+    // Accessor methods for field: nbr2capture
+    //   Field type: int[], unsigned
+    //   Offset (bits): 1744
+    //   Size of each element (bits): 16
+    /////////////////////////////////////////////////////////
+
+    /**
+     * Return whether the field 'nbr2capture' is signed (false).
+     */
+    public static boolean isSigned_nbr2capture() {
+        return false;
+    }
+
+    /**
+     * Return whether the field 'nbr2capture' is an array (true).
+     */
+    public static boolean isArray_nbr2capture() {
+        return true;
+    }
+
+    /**
+     * Return the offset (in bytes) of the field 'nbr2capture'
+     */
+    public static int offset_nbr2capture(int index1) {
+        int offset = 1744;
+        if (index1 < 0 || index1 >= 100) throw new ArrayIndexOutOfBoundsException();
+        offset += 0 + index1 * 16;
+        return (offset / 8);
+    }
+
+    /**
+     * Return the offset (in bits) of the field 'nbr2capture'
+     */
+    public static int offsetBits_nbr2capture(int index1) {
+        int offset = 1744;
+        if (index1 < 0 || index1 >= 100) throw new ArrayIndexOutOfBoundsException();
+        offset += 0 + index1 * 16;
+        return offset;
+    }
+
+    /**
+     * Return the entire array 'nbr2capture' as a int[]
+     */
+    public int[] get_nbr2capture() {
+        int[] tmp = new int[100];
+        for (int index0 = 0; index0 < numElements_nbr2capture(0); index0++) {
+            tmp[index0] = getElement_nbr2capture(index0);
+        }
+        return tmp;
+    }
+
+    /**
+     * Set the contents of the array 'nbr2capture' from the given int[]
+     */
+    public void set_nbr2capture(int[] value) {
+        for (int index0 = 0; index0 < value.length; index0++) {
+            setElement_nbr2capture(index0, value[index0]);
+        }
+    }
+
+    /**
+     * Return an element (as a int) of the array 'nbr2capture'
+     */
+    public int getElement_nbr2capture(int index1) {
+        return (int)getUIntBEElement(offsetBits_nbr2capture(index1), 16);
+    }
+
+    /**
+     * Set an element of the array 'nbr2capture'
+     */
+    public void setElement_nbr2capture(int index1, int value) {
+        setUIntBEElement(offsetBits_nbr2capture(index1), 16, value);
+    }
+
+    /**
+     * Return the total size, in bytes, of the array 'nbr2capture'
+     */
+    public static int totalSize_nbr2capture() {
+        return (1600 / 8);
+    }
+
+    /**
+     * Return the total size, in bits, of the array 'nbr2capture'
+     */
+    public static int totalSizeBits_nbr2capture() {
+        return 1600;
+    }
+
+    /**
+     * Return the size, in bytes, of each element of the array 'nbr2capture'
+     */
+    public static int elementSize_nbr2capture() {
+        return (16 / 8);
+    }
+
+    /**
+     * Return the size, in bits, of each element of the array 'nbr2capture'
+     */
+    public static int elementSizeBits_nbr2capture() {
+        return 16;
+    }
+
+    /**
+     * Return the number of dimensions in the array 'nbr2capture'
+     */
+    public static int numDimensions_nbr2capture() {
+        return 1;
+    }
+
+    /**
+     * Return the number of elements in the array 'nbr2capture'
+     */
+    public static int numElements_nbr2capture() {
+        return 100;
+    }
+
+    /**
+     * Return the number of elements in the array 'nbr2capture'
+     * for the given dimension.
+     */
+    public static int numElements_nbr2capture(int dimension) {
+      int array_dims[] = { 100,  };
+        if (dimension < 0 || dimension >= 1) throw new ArrayIndexOutOfBoundsException();
+        if (array_dims[dimension] == 0) throw new IllegalArgumentException("Array dimension "+dimension+" has unknown size");
+        return array_dims[dimension];
     }
 
 }

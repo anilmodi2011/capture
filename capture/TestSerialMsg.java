@@ -7,12 +7,12 @@
 public class TestSerialMsg extends net.tinyos.message.Message {
 
     /** The default size of this message type in bytes. */
-    public static final int DEFAULT_MESSAGE_SIZE = 18;
+    public static final int DEFAULT_MESSAGE_SIZE = 218;
 
     /** The Active Message type associated with this message. */
     public static final int AM_TYPE = 137;
 
-    /** Create a new TestSerialMsg of size 18. */
+    /** Create a new TestSerialMsg of size 218. */
     public TestSerialMsg() {
         super(DEFAULT_MESSAGE_SIZE);
         amTypeSet(AM_TYPE);
@@ -110,6 +110,13 @@ public class TestSerialMsg extends net.tinyos.message.Message {
       } catch (ArrayIndexOutOfBoundsException aioobe) { /* Skip field */ }
       try {
         s += "  [capture2=0x"+Long.toHexString(get_capture2())+"]\n";
+      } catch (ArrayIndexOutOfBoundsException aioobe) { /* Skip field */ }
+      try {
+        s += "  [nbr1capture=";
+        for (int i = 0; i < 100; i++) {
+          s += "0x"+Long.toHexString(getElement_nbr1capture(i) & 0xffff)+" ";
+        }
+        s += "]\n";
       } catch (ArrayIndexOutOfBoundsException aioobe) { /* Skip field */ }
       return s;
     }
@@ -681,6 +688,134 @@ public class TestSerialMsg extends net.tinyos.message.Message {
      */
     public static int sizeBits_capture2() {
         return 16;
+    }
+
+    /////////////////////////////////////////////////////////
+    // Accessor methods for field: nbr1capture
+    //   Field type: int[], unsigned
+    //   Offset (bits): 144
+    //   Size of each element (bits): 16
+    /////////////////////////////////////////////////////////
+
+    /**
+     * Return whether the field 'nbr1capture' is signed (false).
+     */
+    public static boolean isSigned_nbr1capture() {
+        return false;
+    }
+
+    /**
+     * Return whether the field 'nbr1capture' is an array (true).
+     */
+    public static boolean isArray_nbr1capture() {
+        return true;
+    }
+
+    /**
+     * Return the offset (in bytes) of the field 'nbr1capture'
+     */
+    public static int offset_nbr1capture(int index1) {
+        int offset = 144;
+        if (index1 < 0 || index1 >= 100) throw new ArrayIndexOutOfBoundsException();
+        offset += 0 + index1 * 16;
+        return (offset / 8);
+    }
+
+    /**
+     * Return the offset (in bits) of the field 'nbr1capture'
+     */
+    public static int offsetBits_nbr1capture(int index1) {
+        int offset = 144;
+        if (index1 < 0 || index1 >= 100) throw new ArrayIndexOutOfBoundsException();
+        offset += 0 + index1 * 16;
+        return offset;
+    }
+
+    /**
+     * Return the entire array 'nbr1capture' as a int[]
+     */
+    public int[] get_nbr1capture() {
+        int[] tmp = new int[100];
+        for (int index0 = 0; index0 < numElements_nbr1capture(0); index0++) {
+            tmp[index0] = getElement_nbr1capture(index0);
+        }
+        return tmp;
+    }
+
+    /**
+     * Set the contents of the array 'nbr1capture' from the given int[]
+     */
+    public void set_nbr1capture(int[] value) {
+        for (int index0 = 0; index0 < value.length; index0++) {
+            setElement_nbr1capture(index0, value[index0]);
+        }
+    }
+
+    /**
+     * Return an element (as a int) of the array 'nbr1capture'
+     */
+    public int getElement_nbr1capture(int index1) {
+        return (int)getUIntBEElement(offsetBits_nbr1capture(index1), 16);
+    }
+
+    /**
+     * Set an element of the array 'nbr1capture'
+     */
+    public void setElement_nbr1capture(int index1, int value) {
+        setUIntBEElement(offsetBits_nbr1capture(index1), 16, value);
+    }
+
+    /**
+     * Return the total size, in bytes, of the array 'nbr1capture'
+     */
+    public static int totalSize_nbr1capture() {
+        return (1600 / 8);
+    }
+
+    /**
+     * Return the total size, in bits, of the array 'nbr1capture'
+     */
+    public static int totalSizeBits_nbr1capture() {
+        return 1600;
+    }
+
+    /**
+     * Return the size, in bytes, of each element of the array 'nbr1capture'
+     */
+    public static int elementSize_nbr1capture() {
+        return (16 / 8);
+    }
+
+    /**
+     * Return the size, in bits, of each element of the array 'nbr1capture'
+     */
+    public static int elementSizeBits_nbr1capture() {
+        return 16;
+    }
+
+    /**
+     * Return the number of dimensions in the array 'nbr1capture'
+     */
+    public static int numDimensions_nbr1capture() {
+        return 1;
+    }
+
+    /**
+     * Return the number of elements in the array 'nbr1capture'
+     */
+    public static int numElements_nbr1capture() {
+        return 100;
+    }
+
+    /**
+     * Return the number of elements in the array 'nbr1capture'
+     * for the given dimension.
+     */
+    public static int numElements_nbr1capture(int dimension) {
+      int array_dims[] = { 100,  };
+        if (dimension < 0 || dimension >= 1) throw new ArrayIndexOutOfBoundsException();
+        if (array_dims[dimension] == 0) throw new IllegalArgumentException("Array dimension "+dimension+" has unknown size");
+        return array_dims[dimension];
     }
 
 }
